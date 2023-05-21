@@ -1,0 +1,14 @@
+/* General */
+@import url(format.css);
+
+/* Estilos index */
+@import url(index.css);
+
+
+/* Estilos productos */
+@import url(products.css);
+
+/* Estilos footer */
+@import url(footer.css);
+
+

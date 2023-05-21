@@ -1,0 +1,25 @@
+<div class="container tablaUsuarios">
+    <h1>Lista de Usuarios</h1>
+    <table class="table table-striped">
+        <thead class="headTable">
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Edad</th>
+                <th>Rol</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each users}}
+            <tr>
+                <td>{{this.first_name}}</td>
+                <td>{{this.last_name}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.age}}</td>
+                <td>{{this.role}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
