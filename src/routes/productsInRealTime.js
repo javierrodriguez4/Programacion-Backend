@@ -18,7 +18,7 @@ const upload = multer({ storage });
 
 
 router.get('/', isAdmin, (req, res) => {
-    res.render('realtimeproducts', {});
+    res.render('realTimeProducts', {});
 });
 
 router.post('/', upload.single('thumbnail'), async (req, res) => {

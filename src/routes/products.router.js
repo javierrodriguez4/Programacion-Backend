@@ -2,6 +2,9 @@ const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const Product = require('../dao/models/products.model');
+const { v4: uuidv4 } = require('uuid');
+
+
 
 const router = express.Router();
 
@@ -45,6 +48,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
+/*
 router.post('/', upload.single('thumbnail'), async (req, res) => {
     const { title, category, size, code, description, price, stock } = req.body;
     if (!title) {
@@ -55,12 +59,12 @@ router.post('/', upload.single('thumbnail'), async (req, res) => {
         title,
         category,
         size,
-        status: true,
+        status: ,
         code,
         description,
         price: parseInt(price),
         stock,
-        thumbnail: `/img/${req.file.filename}`
+        thumbnail: 
     });
 
     try {
@@ -81,6 +85,19 @@ router.post('/', upload.single('thumbnail'), async (req, res) => {
         res.status(500).send('Error al guardar el producto en la base de datos');
     }
 });
+*/
+
+function generateID(){
+    const newID = uuidv4().substring(0, 8);
+    return newID
+  }
+
+router.post('/', async (req, res ) => {
+    const productForm = req.body
+    const productNew = {...productForm, code: generateID()}
+    const productGenerate = new Product(productNew)
+    await productGenerate.save()
+  })
 
 router.get('/filter/:category', async (req, res, next) => {
     try {
